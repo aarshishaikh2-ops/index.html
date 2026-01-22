@@ -254,48 +254,18 @@
             grid.appendChild(div);
         }
         function closeL() { document.getElementById('overlay').style.display = 'none'; }
-    </script>
-<style>
-  .new-buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: #fff9f5;
-  }
-  .custom-btn {
-    background: white;
-    border: 1px solid #f0e6dd;
-    border-radius: 12px;
-    padding: 18px 10px;
-    font-family: 'Georgia', serif;
-    color: #8d775f;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    width: 45%; /* Ek line mein do buttons aayenge */
-    text-align: center;
-  }
-  .custom-btn:hover {
-    background: #fdf2e9;
-    transform: translateY(-2px);
-  }
-</style>
-
-<div class="new-buttons-container">
-  <button class="custom-btn" onclick="openMessage(21)">You feel like Failing</button>
-  <button class="custom-btn" onclick="openMessage(22)">You are Grateful</button>
-  <button class="custom-btn" onclick="openMessage(23)">People are Judging You</button>
-  <button class="custom-btn" onclick="openMessage(24)">You feel Impatient</button>
-  <button class="custom-btn" onclick="openMessage(25)">Feeling Distant</button>
-  <button class="custom-btn" onclick="openMessage(26)">You had a Bad Dream</button>
+    <div class="new-buttons-grid">
+  <button class="open-btn" onclick="openMessage(21)">You feel like Failing</button>
+  <button class="open-btn" onclick="openMessage(22)">You are Grateful</button>
+  <button class="open-btn" onclick="openMessage(23)">People are Judging You</button>
+  <button class="open-btn" onclick="openMessage(24)">You feel Impatient</button>
+  <button class="open-btn" onclick="openMessage(25)">Feeling Distant</button>
+  <button class="open-btn" onclick="openMessage(26)">You had a Bad Dream</button>
 </div>
-
 <script>
-  // Purane messages ke niche ye naye add ho jayenge
-  const newMessages = {
+  // This is the brain of your buttons. It stores all the text.
+  const messages = {
+    // ... (Your 1-20 messages should be here)
     21: {
       title: "Open when... You feel like Failing",
       letter: "Harne ka khayal dil mein mat lao. Tumhari koshish hi tumhari sabse badi jeet hai. Main jaanti hoon tum kar sakte ho, bas rukna mat.",
@@ -334,21 +304,32 @@
     }
   };
 
-  // Pehle se bani list mein naye messages merge karne ke liye
-  Object.assign(messages, newMessages);
-
-  // Function agar pehle se nahi hai toh:
+  // This function handles the clicking
   function openMessage(id) {
-    if (messages[id]) {
+    const modal = document.getElementById('myModal');
+    if (messages[id] && modal) {
       document.getElementById('modalTitle').innerText = messages[id].title;
       document.getElementById('modalLetter').innerText = messages[id].letter;
       document.getElementById('modalAyah').innerText = messages[id].ayah;
       document.getElementById('modalExp').innerText = messages[id].exp;
-      document.getElementById('myModal').style.display = "block";
+      modal.style.display = "block";
+    } else {
+      console.error("Message or Modal missing for ID:", id);
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  }
+
+  // Close when clicking outside the box
+  window.onclick = function(event) {
+    const modal = document.getElementById('myModal');
+    if (event.target == modal) {
+      closeModal();
     }
   }
 </script>
-
 
 </body>
 </html>
