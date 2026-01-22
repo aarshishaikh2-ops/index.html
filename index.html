@@ -254,82 +254,8 @@
             grid.appendChild(div);
         }
         function closeL() { document.getElementById('overlay').style.display = 'none'; }
-    <div class="new-buttons-grid">
-  <button class="open-btn" onclick="openMessage(21)">You feel like Failing</button>
-  <button class="open-btn" onclick="openMessage(22)">You are Grateful</button>
-  <button class="open-btn" onclick="openMessage(23)">People are Judging You</button>
-  <button class="open-btn" onclick="openMessage(24)">You feel Impatient</button>
-  <button class="open-btn" onclick="openMessage(25)">Feeling Distant</button>
-  <button class="open-btn" onclick="openMessage(26)">You had a Bad Dream</button>
-</div>
-<script>
-  // This is the brain of your buttons. It stores all the text.
-  const messages = {
-    // ... (Your 1-20 messages should be here)
-    21: {
-      title: "Open when... You feel like Failing",
-      letter: "Harne ka khayal dil mein mat lao. Tumhari koshish hi tumhari sabse badi jeet hai. Main jaanti hoon tum kar sakte ho, bas rukna mat.",
-      ayah: "And that there is not for man except that [good] for which he strives. (53:39)",
-      exp: "Allah tumhari mehnat dekh raha hai, natija us par chor do. Woh behtareen dene wala hai."
-    },
-    22: {
-      title: "Open when... You are Grateful",
-      letter: "MashAllah, aaj tumhein khush dekh kar mera dil khush ho gaya! Is pal ko dil se enjoy karo aur Allah ka shukr ada karo.",
-      ayah: "If you are grateful, I will surely increase you. (14:7)",
-      exp: "Jab tum shukr karte ho, toh Allah tumhein aur bhi zyada khushiyan deta hai."
-    },
-    23: {
-      title: "Open when... People are Judging You",
-      letter: "Logon ki baaton ko dil pe mat lo. Tum mere liye aur Allah ke liye kya ho, bas wahi kaafi hai. Don't doubt yourself.",
-      ayah: "And be patient over what they say. (73:10)",
-      exp: "Sabse behtareen jawab khamoshi hai. Tumhara rab tumhari neeyat jaanta hai."
-    },
-    24: {
-      title: "Open when... You feel Impatient",
-      letter: "Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr rakho. Allah ka har faisla sahi waqt par hota hai.",
-      ayah: "And Allah loves the patient. (3:146)",
-      exp: "Sabr ka phal hamesha meetha hota hai. Allah tumhari sabr ko dekh raha hai."
-    },
-    25: {
-      title: "Open when... Feeling Distant",
-      letter: "Kabhi kabhi dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek sajda kaafi hai. Wo tumhare dil ke sabse kareeb hai.",
-      ayah: "So flee to Allah. (51:50)",
-      exp: "Allah hamesha tumhara intezar karta hai. Ek baar usse dil ki baat keh kar dekho."
-    },
-    26: {
-      title: "Open when... You had a Bad Dream",
-      letter: "Khwab tha, guzar gaya. Pareshan mat ho, main hoon na. Gehri saans lo aur yaad rakho ke bura khwab sirf ek waham hota hai. Ab sukoon se so jao.",
-      ayah: "And He is the All-Hearing, the All-Knowing. (2:137)",
-      exp: "Allah tumhare har darr ko jaanta hai. Bura khwab dekh kar 'A'udhu billahi' parh liya karo."
-    }
-  };
+    </script>
+    
+    </body>
 
-  // This function handles the clicking
-  function openMessage(id) {
-    const modal = document.getElementById('myModal');
-    if (messages[id] && modal) {
-      document.getElementById('modalTitle').innerText = messages[id].title;
-      document.getElementById('modalLetter').innerText = messages[id].letter;
-      document.getElementById('modalAyah').innerText = messages[id].ayah;
-      document.getElementById('modalExp').innerText = messages[id].exp;
-      modal.style.display = "block";
-    } else {
-      console.error("Message or Modal missing for ID:", id);
-    }
-  }
-
-  function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-  }
-
-  // Close when clicking outside the box
-  window.onclick = function(event) {
-    const modal = document.getElementById('myModal');
-    if (event.target == modal) {
-      closeModal();
-    }
-  }
-</script>
-
-</body>
 </html>
