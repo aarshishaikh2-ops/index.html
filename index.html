@@ -255,89 +255,142 @@
         }
         function closeL() { document.getElementById('overlay').style.display = 'none'; }
     </script>
-    <div class="open-me-container">
 
-        <style>
-  .open-me-container {
+    <style>
+  .button-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Do columns jaise image mein hai */
     gap: 15px;
     padding: 20px;
-    background-color: #fff9f5; /* Light cream background */
+    max-width: 500px;
+    margin: auto;
   }
-  .card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  .open-btn {
+    background: white;
     border: 1px solid #f0e6dd;
-    transition: transform 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  .card h3 {
+    border-radius: 12px;
+    padding: 20px 10px;
+    font-family: 'Georgia', serif;
     color: #8d775f;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: 0.3s;
   }
-  .letter-text {
-    font-style: italic;
-    color: #555;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+  .open-btn:hover {
+    background: #fdf2e9;
+    transform: scale(1.02);
   }
-  .ayah-box {
+  /* Modal (Message Box) Style */
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .modal-content {
+    background-color: #fff9f5;
+    margin: 15% auto;
+    padding: 25px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #b08d57;
+  }
+  .close {
+    position: absolute;
+    right: 15px; top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #8d775f;
+  }
+  .ayah-text {
     background: #fdf2e9;
     padding: 10px;
     border-radius: 8px;
     font-weight: bold;
     color: #b08d57;
-    margin: 10px 0;
-  }
-  .explanation-text {
-    font-size: 0.8rem;
-    color: #888;
+    margin: 15px 0;
   }
 </style>
 
-  <div class="card">
-    <h3>21. You feel Heartbroken</h3>
-    <p class="letter-text">"I hate seeing you hurt. Mujhe pata hai tumhara dil halka nahi hai aaj, par please is ek setback ki wajah se khud ko mat todna. Main hamesha tumhare saath hoon."</p>
-    <div class="ayah-box">"Do not lose heart nor fall into despair." (3:139)</div>
-    <p class="explanation-text">Allah tumhein bata raha hai ke ye dukh temporary hai. Himmat mat haaro.</p>
-  </div>
+    <div class="open-me-container">
 
-  <div class="card">
-    <h3>22. You are Grateful</h3>
-    <p class="letter-text">"MashAllah, aaj tumhein khush dekh kar mera dil bhi khush ho gaya! Tumhari kamyabi aur smile mere liye sab kuch hai. Is pal ko enjoy karo!"</p>
-    <div class="ayah-box">"If you are grateful, I will surely increase you." (14:7)</div>
-    <p class="explanation-text">Jab tum shukr karte ho, Allah tumhare sukoon ko aur badha deta hai. Alhamdulillah!</p>
-  </div>
-
-  <div class="card">
-    <h3>23. People are Judging You</h3>
-    <p class="letter-text">"Logon ki baaton ko dil pe mat lo. Unka kaam hi kehna hai. Mere liye aur Allah ke liye tum kya ho, bas wahi kaafi hai. Don't doubt yourself."</p>
-    <div class="ayah-box">"Be patient over what they say and avoid them gracefully." (73:10)</div>
-    <p class="explanation-text">Sabse behtareen jawab khamoshi hai. Tumhara rab tumhari neeyat jaanta hai.</p>
-  </div>
-
-  <div class="card">
-    <h3>24. You feel Impatient</h3>
-    <p class="letter-text">"Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr kar lo. Allah ne tumhare liye behtareen socha hoga, trust me."</p>
-    <div class="ayah-box">"And Allah loves the steadfast (patient)." (3:146)</div>
-    <p class="explanation-text">Sabr ka phal hamesha meetha hota hai. Allah tumhari mehnat dekh raha hai.</p>
-  </div>
-
-  <div class="card">
-    <h3>25. Feeling Distant from Allah</h3>
-    <p class="letter-text">"Kabhi kabhi dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek pal lagta hai. Wo tumse door nahi hai, bas tum ek baar usse pukaro."</p>
-    <div class="ayah-box">"So flee to Allah (Return to Him)." (51:50)</div>
-    <p class="explanation-text">Allah hamesha tumhara intezar karta hai. Wo tumhare dil ke sabse kareeb hai.</p>
-  </div>
-
+<div class="button-grid">
+  <button class="open-btn" onclick="openMessage(21)">You feel Heartbroken</button>
+  <button class="open-btn" onclick="openMessage(22)">You are Grateful</button>
+  <button class="open-btn" onclick="openMessage(23)">People are Judging You</button>
+  <button class="open-btn" onclick="openMessage(24)">You feel Impatient</button>
+  <button class="open-btn" onclick="openMessage(25)">Feeling Distant</button>
 </div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle" style="color: #8d775f;"></h2>
+    <p id="modalLetter" style="font-style: italic; color: #555;"></p>
+    <div id="modalAyah" class="ayah-text"></div>
+    <p id="modalExp" style="font-size: 13px; color: #888;"></p>
+  </div>
+</div>
+<script>
+    
+  const messages = {
+    21: {
+      title: "Open when... You feel Heartbroken",
+      letter: "I hate seeing you hurt. Mujhe pata hai tumhara dil halka nahi hai aaj, par please is ek setback ki wajah se khud ko mat todna. Main hamesha tumhare saath hoon.",
+      ayah: "Do not lose heart nor fall into despair. (3:139)",
+      exp: "Allah tumhein bata raha hai ke ye dukh temporary hai. Himmat mat haaro."
+    },
+    22: {
+      title: "Open when... You are Grateful",
+      letter: "MashAllah, aaj tumhein khush dekh kar mera dil bhi khush ho gaya! Tumhari kamyabi mere liye sab kuch hai. Is pal ko enjoy karo!",
+      ayah: "If you are grateful, I will surely increase you. (14:7)",
+      exp: "Shukr karne se khushiyan aur sukoon badhta hai. Alhamdulillah!"
+    },
+    23: {
+      title: "Open when... People are Judging You",
+      letter: "Logon ki baaton ko dil pe mat lo. Unka kaam hi kehna hai. Mere liye aur Allah ke liye tum kya ho, bas wahi kaafi hai.",
+      ayah: "Be patient over what they say and avoid them gracefully. (73:10)",
+      exp: "Sabse behtareen jawab khamoshi hai. Tumhara rab tumhari neeyat jaanta hai."
+    },
+    24: {
+      title: "Open when... You feel Impatient",
+      letter: "Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr kar lo. Allah ne tumhare liye behtareen socha hoga.",
+      ayah: "And Allah loves the steadfast (patient). (3:146)",
+      exp: "Sabr ka phal hamesha meetha hota hai. Allah tumhari mehnat dekh raha hai."
+    },
+    25: {
+      title: "Open when... Feeling Distant",
+      letter: "Dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek pal lagta hai. Wo tumse door nahi hai, bas tum ek baar usse pukaro.",
+      ayah: "So flee to Allah (Return to Him). (51:50)",
+      exp: "Allah hamesha tumhara intezar karta hai. Wo tumhare dil ke sabse kareeb hai."
+    }
+  };
+
+  function openMessage(id) {
+    document.getElementById('modalTitle').innerText = messages[id].title;
+    document.getElementById('modalLetter').innerText = messages[id].letter;
+    document.getElementById('modalAyah').innerText = messages[id].ayah;
+    document.getElementById('modalExp').innerText = messages[id].exp;
+    document.getElementById('myModal').style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  }
+
+  // Window ke bahar click karne se close ho jaye
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('myModal')) {
+      closeModal();
+    }
+  }
+</script>
 
 </body>
 </html>
