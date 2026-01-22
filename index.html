@@ -255,140 +255,96 @@
         }
         function closeL() { document.getElementById('overlay').style.display = 'none'; }
     </script>
-
-    <style>
-  .button-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Do columns jaise image mein hai */
-    gap: 15px;
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
+<style>
+  .new-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff9f5;
   }
-  .open-btn {
+  .custom-btn {
     background: white;
     border: 1px solid #f0e6dd;
     border-radius: 12px;
-    padding: 20px 10px;
+    padding: 18px 10px;
     font-family: 'Georgia', serif;
     color: #8d775f;
     font-size: 14px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: 0.3s;
-  }
-  .open-btn:hover {
-    background: #fdf2e9;
-    transform: scale(1.02);
-  }
-  /* Modal (Message Box) Style */
-  .modal {
-    display: none; 
-    position: fixed;
-    z-index: 1;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-  }
-  .modal-content {
-    background-color: #fff9f5;
-    margin: 15% auto;
-    padding: 25px;
-    border-radius: 20px;
-    width: 80%;
-    max-width: 400px;
+    width: 45%; /* Ek line mein do buttons aayenge */
     text-align: center;
-    position: relative;
-    border: 2px solid #b08d57;
   }
-  .close {
-    position: absolute;
-    right: 15px; top: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #8d775f;
-  }
-  .ayah-text {
+  .custom-btn:hover {
     background: #fdf2e9;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #b08d57;
-    margin: 15px 0;
+    transform: translateY(-2px);
   }
 </style>
 
-    <div class="open-me-container">
-
-<div class="button-grid">
-  <button class="open-btn" onclick="openMessage(21)">You feel Heartbroken</button>
-  <button class="open-btn" onclick="openMessage(22)">You are Grateful</button>
-  <button class="open-btn" onclick="openMessage(23)">People are Judging You</button>
-  <button class="open-btn" onclick="openMessage(24)">You feel Impatient</button>
-  <button class="open-btn" onclick="openMessage(25)">Feeling Distant</button>
-
+<div class="new-buttons-container">
+  <button class="custom-btn" onclick="openMessage(21)">You feel like Failing</button>
+  <button class="custom-btn" onclick="openMessage(22)">You are Grateful</button>
+  <button class="custom-btn" onclick="openMessage(23)">People are Judging You</button>
+  <button class="custom-btn" onclick="openMessage(24)">You feel Impatient</button>
+  <button class="custom-btn" onclick="openMessage(25)">Feeling Distant</button>
+  <button class="custom-btn" onclick="openMessage(26)">You had a Bad Dream</button>
 </div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle" style="color: #8d775f;"></h2>
-    <p id="modalLetter" style="font-style: italic; color: #555;"></p>
-    <div id="modalAyah" class="ayah-text"></div>
-    <p id="modalExp" style="font-size: 13px; color: #888;"></p>
-  </div>
-</div>
 <script>
-    
-  const messages = {
+  // Purane messages ke niche ye naye add ho jayenge
+  const newMessages = {
     21: {
-      title: "Open when... You feel Heartbroken",
-      letter: "I hate seeing you hurt. Mujhe pata hai tumhara dil halka nahi hai aaj, par please is ek setback ki wajah se khud ko mat todna. Main hamesha tumhare saath hoon.",
-      ayah: "Do not lose heart nor fall into despair. (3:139)",
-      exp: "Allah tumhein bata raha hai ke ye dukh temporary hai. Himmat mat haaro."
+      title: "Open when... You feel like Failing",
+      letter: "Harne ka khayal dil mein mat lao. Tumhari koshish hi tumhari sabse badi jeet hai. Main jaanti hoon tum kar sakte ho, bas rukna mat.",
+      ayah: "And that there is not for man except that [good] for which he strives. (53:39)",
+      exp: "Allah tumhari mehnat dekh raha hai, natija us par chor do. Woh behtareen dene wala hai."
     },
     22: {
       title: "Open when... You are Grateful",
-      letter: "MashAllah, aaj tumhein khush dekh kar mera dil bhi khush ho gaya! Tumhari kamyabi mere liye sab kuch hai. Is pal ko enjoy karo!",
+      letter: "MashAllah, aaj tumhein khush dekh kar mera dil khush ho gaya! Is pal ko dil se enjoy karo aur Allah ka shukr ada karo.",
       ayah: "If you are grateful, I will surely increase you. (14:7)",
-      exp: "Shukr karne se khushiyan aur sukoon badhta hai. Alhamdulillah!"
+      exp: "Jab tum shukr karte ho, toh Allah tumhein aur bhi zyada khushiyan deta hai."
     },
     23: {
       title: "Open when... People are Judging You",
-      letter: "Logon ki baaton ko dil pe mat lo. Unka kaam hi kehna hai. Mere liye aur Allah ke liye tum kya ho, bas wahi kaafi hai.",
-      ayah: "Be patient over what they say and avoid them gracefully. (73:10)",
+      letter: "Logon ki baaton ko dil pe mat lo. Tum mere liye aur Allah ke liye kya ho, bas wahi kaafi hai. Don't doubt yourself.",
+      ayah: "And be patient over what they say. (73:10)",
       exp: "Sabse behtareen jawab khamoshi hai. Tumhara rab tumhari neeyat jaanta hai."
     },
     24: {
       title: "Open when... You feel Impatient",
-      letter: "Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr kar lo. Allah ne tumhare liye behtareen socha hoga.",
-      ayah: "And Allah loves the steadfast (patient). (3:146)",
-      exp: "Sabr ka phal hamesha meetha hota hai. Allah tumhari mehnat dekh raha hai."
+      letter: "Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr rakho. Allah ka har faisla sahi waqt par hota hai.",
+      ayah: "And Allah loves the patient. (3:146)",
+      exp: "Sabr ka phal hamesha meetha hota hai. Allah tumhari sabr ko dekh raha hai."
     },
     25: {
       title: "Open when... Feeling Distant",
-      letter: "Dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek pal lagta hai. Wo tumse door nahi hai, bas tum ek baar usse pukaro.",
-      ayah: "So flee to Allah (Return to Him). (51:50)",
-      exp: "Allah hamesha tumhara intezar karta hai. Wo tumhare dil ke sabse kareeb hai."
-    };
+      letter: "Kabhi kabhi dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek sajda kaafi hai. Wo tumhare dil ke sabse kareeb hai.",
+      ayah: "So flee to Allah. (51:50)",
+      exp: "Allah hamesha tumhara intezar karta hai. Ek baar usse dil ki baat keh kar dekho."
+    },
+    26: {
+      title: "Open when... You had a Bad Dream",
+      letter: "Khwab tha, guzar gaya. Pareshan mat ho, main hoon na. Gehri saans lo aur yaad rakho ke bura khwab sirf ek waham hota hai. Ab sukoon se so jao.",
+      ayah: "And He is the All-Hearing, the All-Knowing. (2:137)",
+      exp: "Allah tumhare har darr ko jaanta hai. Bura khwab dekh kar 'A'udhu billahi' parh liya karo."
+    }
+  };
 
+  // Pehle se bani list mein naye messages merge karne ke liye
+  Object.assign(messages, newMessages);
 
+  // Function agar pehle se nahi hai toh:
   function openMessage(id) {
-    document.getElementById('modalTitle').innerText = messages[id].title;
-    document.getElementById('modalLetter').innerText = messages[id].letter;
-    document.getElementById('modalAyah').innerText = messages[id].ayah;
-    document.getElementById('modalExp').innerText = messages[id].exp;
-    document.getElementById('myModal').style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-  }
-
-  // Window ke bahar click karne se close ho jaye
-  window.onclick = function(event) {
-    if (event.target == document.getElementById('myModal')) {
-      closeModal();
+    if (messages[id]) {
+      document.getElementById('modalTitle').innerText = messages[id].title;
+      document.getElementById('modalLetter').innerText = messages[id].letter;
+      document.getElementById('modalAyah').innerText = messages[id].ayah;
+      document.getElementById('modalExp').innerText = messages[id].exp;
+      document.getElementById('myModal').style.display = "block";
     }
   }
 </script>
