@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Me When...</title>
+    <style>
+        :root {
+            --bg-color: #fdf6f0;
+            --card-bg: #ffffff;
+            --text-main: #4a4a4a;
+            --accent: #8e735b;
+            --heart: #e74c3c;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        /* Grid of Envelopes */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .envelope {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 1px solid #eee;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .envelope:active {
+            transform: scale(0.95);
+        }
+
+        /* Modal / Overlay for the Letter */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .letter-popup {
+            background: var(--card-bg);
+            width: 85%;
+            max-height: 80vh;
+            border-radius: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            position: sticky;
+            top: 0;
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        .ayah-box {
+            font-style: italic;
+            color: var(--accent);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .letter-content {
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✉️ Open Me When...</h1>
+
+    <div class="grid">
+        <div class="envelope" onclick="openLetter('lonely')">You Feel Lonely</div>
+        <div class="envelope" onclick="openLetter('stressed')">You Are Stressed</div>
+        <div class="envelope" onclick="openLetter('failing')">You Feel Like Failing</div>
+        <div class="envelope" onclick="openLetter('lost')">You Feel Lost</div>
+        <div class="envelope" onclick="openLetter('doubt')">You Doubt Yourself</div>
+    </div>
+
+    <div id="overlay" class="overlay">
+        <div class="letter-popup">
+            <span class="close-btn" onclick="closeLetter()">&times;</span>
+            <div id="letter-body">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const letters = {
+            lonely: {
+                ayah: '"And He is with you wherever you are." (57:4)',
+                text: "I know that right now, the silence feels loud. You might be surrounded by people but still feel like no one truly sees the 'real' you. I want you to take a second and breathe. I am thinking of you right now. But even more than that, the One who fashioned your heart is watching over you with more love than a mother has for her child. You are never a 'burden' and you are never forgotten.",
+                comfort: "This Ayah is a divine promise. It means that in your darkest room, in your loneliest thought, Allah is present. You aren't just existing alone; you are being looked after by the Creator of the Universe."
+            },
+            stressed: {
+                ayah: '"Verily, in the remembrance of Allah do hearts find rest." (13:28)',
+                text: "I can feel your heart racing from here. You’re worried about the deadlines and the 'what ifs' of tomorrow. Stop. Just for one minute, stop. You don't have to figure out the next ten years today; you just have to get through the next ten minutes. Give yourself permission to be human. You are allowed to rest.",
+                comfort: "Stress comes from the mind running toward the future. This Ayah reminds us that rest isn't just sleeping; it’s connecting back to the Source. He has everything under control, so you don't have to."
+            },
+            failing: {
+                ayah: '"So truly where there is hardship, there is also ease." (94:5)',
+                text: "Failure is just a redirection. I’ve seen you overcome things before, and I know you will overcome this too. Don't let a bad day make you think you have a bad life. You are a work in progress, and I love the person you are becoming, even the messy parts.",
+                comfort: "Notice that Allah says ease is WITH hardship, not after it. The seeds of your future success are already being planted right now in this struggle."
+            },
+            lost: {
+                ayah: '"And He found you lost and guided [you]." (93:7)',
+                text: "It’s okay to be lost. Sometimes, being lost is the only way we find a path we never knew existed. You are searching for a purpose, and that search itself is beautiful. I’m right here holding your hand until the fog clears.",
+                comfort: "This Ayah reminds us that being lost isn't permanent. Guidance is a gift, and just as He guided the Prophets, He will guide you too."
+            },
+            doubt: {
+                ayah: '"And put your trust in Allah; and sufficient is Allah as a Disposer of affairs." (33:3)',
+                text: "Stop being your own worst enemy. You are smart, capable, and have a light in you that I see every day. Those doubts are just whispers of fear. You have survived 100% of your hardest days. You’ve got this.",
+                comfort: "When you doubt yourself, remember the strength Allah put inside you. Shift the weight to Him. If He is for you, who can be against you?"
+            }
+        };
+
+        function openLetter(key) {
+            const data = letters[key];
+            const content = `
+                <div class="ayah-box">${data.ayah}</div>
+                <div class="letter-content">${data.text}</div>
+                <div class="explanation"><strong>Comfort:</strong> ${data.comfort}</div>
+                <div style="text-align:center; margin-top:20px; color:#e74c3c;">❤</div>
+            `;
+            document.getElementById('letter-body').innerHTML = content;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function closeLetter() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
