@@ -118,66 +118,165 @@
     </div>
 
     <script>
-        const data = {
-            1: { t: "You Feel Lonely", m: "I know kafi bar aisa lagta hai ke itni bheed mein bhi hum akele hain... But listen, main hamesha yahan hoon.", a: "57:4 - 'And He is with you wherever you are.'", c: "Allah is closer to you than anyone else." },
-            2: { t: "You are Stressed", m: "Hey, take a deep breath. Itna zyada tension mat lo, sab theek ho jayega InshaAllah.", a: "13:28 - 'Verily, in the remembrance of Allah do hearts find rest.'", c: "Sukoon sirf Allah ke zikr mein hai." },
-            3: { t: "You Feel Like Failing", m: "Suno, ek failure tumhari puri life define nahi karta. Don't be so hard on yourself.", a: "94:5 - 'So truly where there is hardship, there is also ease.'", c: "Har mushkil ke saath asaani judi hui hai." },
-            4: { t: "You Miss Me", m: "Aww, main bhi tumhe miss kar rahi hoon! Distance physical ho sakta hai, but dil se hum connect hain.", a: "30:21 - 'He has placed between you affection and mercy.'", c: "Missing someone is just proof of how much they matter." },
-            5: { t: "You Doubt Yourself", m: "Apne aap par shak karna band karo! I see so much potential and light in you.", a: "33:3 - 'And put your trust in Allah.'", c: "Trust the strength Allah gave you." },
-            6: { t: "Need a Reason to Smile", m: "Cheer up! Tumhari smile sach mein bohot pyaari hai. Always stay happy!", a: "53:43 - 'And that it is He who makes [one] laugh and weep.'", c: "Happiness is a gift. May Allah keep you smiling." },
-            7: { t: "You Can’t Sleep", m: "Raat kafi ho gayi hai aur tumhara dimaag abhi bhi chal raha hai? Sone ki koshish karo.", a: "25:47 - 'He it is Who made the night as a clothing for you...'", c: "Raat ko sukoon ke liye banaya gaya hai." },
-            8: { t: "You Are Angry", m: "I know tum kafi frustrated ho, but thoda thanda dimaag se socho. Gussa aag hai.", a: "3:134 - 'Those who restrain anger...'", c: "Gusse ko pee jana sabse badi bahaduri hai." },
-            9: { t: "A Long Day", m: "Kafi thak gaye ho na aaj? I am so proud of how you handled everything today.", a: "Reminder", c: "Allah sees every bit of your effort. Rest well." },
-            10: { t: "Worried for Future", m: "Future ki tension le kar aaj ka sukoon kyun khona? Jo tumhare liye likha hai wo mil kar rahega.", a: "3:173 - 'Allah is sufficient for us.'", c: "He is the best planner." },
-            11: { t: "You Succeed", m: "Yaaaay! I knew you could do it! Seeing you succeed makes me so happy. Alhamdulillah.", a: "14:7 - 'If you are grateful, I will surely increase you.'", c: "Shukur ada karo, Allah aur barkat dega." },
-            12: { t: "Need a Virtual Hug", m: "Imagine this message as a hug. Main hamesha tumhare saath hoon, no matter what.", a: "Reminder", c: "Sincere bonds are a mercy from the Almighty." },
-            13: { t: "Feel Unheard", m: "Log nahi toh kya hua, the One who made you understands every silent tear. Mujhse baat karo.", a: "67:13 - 'Indeed, He knows that which is within the breasts.'", c: "He knows your heart even when words fail." },
-            14: { t: "Feel Overwhelmed", m: "Stop. Sab kuch ek saath karne ki koshish mat karo. You are a warrior. Thoda break lo.", a: "2:286 - 'Allah does not burden a soul beyond that it can bear.'", c: "You are stronger than you feel right now." },
-            15: { t: "Making a Decision", m: "Confused ho? Istikhara karo aur apne dil ki suno. I trust your judgement fully.", a: "Clarity", c: "Pray for guidance and then take the step." },
-            16: { t: "Faith Feels Low", m: "Don't feel guilty. Bas ek chota sa 'SubhanAllah' bhi kafi hai aaj ke liye.", a: "2:222 - 'Indeed, Allah loves those who are constantly repentant.'", c: "Wapas palatna hi sabse badi kamyabi hai." },
-            17: { t: "Start Your Day", m: "Good morning! Aaj ka din ek nayi umeed hai. May your day be full of barakah.", a: "93:1 - 'By the morning brightness...'", c: "Every morning is a sign of His Mercy." },
-            18: { t: "Memory", m: "Yaad hai wo saare vlog banana aur pagalpan? Wo memories soch kar hi hansi aa jati hai.", a: "Joy", c: "Laughter is a blessing for the soul." },
-            19: { t: "Just Need Love", m: "In case you forgot: You are precious. You are a blessing in my life.", a: "Sincerity", c: "Pure love is a light that never fades." },
-            20: { t: "Open Any Time", m: "Jazakallah khair for being you. Meri life mein tumhari presence kafi matter karti hai.", a: "Gratitude", c: "Thanking Allah for the people who make life better." },
-            
-            // NEW ADDITIONS START HERE
+                const data = {
+            1: { 
+                t: "You Feel Lonely", 
+                m: "I know kafi baar aisa lagta hai ke itni bheed mein bhi hum akele hain, jaise koi humein samajh nahi raha. But listen to me, main hamesha yahan hoon. Kabhi bhi akela mehsoos ho toh bas aankhein band karke yaad karna ke tumhare paas koi hai jo tumhari har chhoti baat sunne ke liye taiyar hai. You are never a burden to me, and you never have to face anything alone as long as I am here. Just one call or message away, hamesha.",
+                a: "57:4 - 'And He is with you wherever you are.'", 
+                c: "Allah is closer to you than anyone else. He is listening to your silent prayers." 
+            },
+            2: { 
+                t: "You are Stressed", 
+                m: "Hey, take a deep breath. Itna zyada tension mat lo, sab theek ho jayega InshaAllah. I know things feel overwhelming right now aur bojh zyada lag raha hai, but you are strong enough to handle this. Zyada mat socho, overthinking sirf sukoon chheenti hai. Relax your mind, thoda paani piyo, aur yaad rakho ke har mushkil waqt guzar jata hai. Main tumhare saath hoon, hum mil kar solution nikal lenge.",
+                a: "13:28 - 'Verily, in the remembrance of Allah do hearts find rest.'", 
+                c: "Sukoon sirf Allah ke zikr mein hai. Give your worries to Him." 
+            },
+            3: { 
+                t: "You Feel Like Failing", 
+                m: "Suno, ek failure tumhari poori life ya tumhari worth define nahi karta. Everyone struggles, and it’s okay to stumble sometimes. Zindagi mein kabhi kabhi girna zaroori hota hai taake hum aur mazboot ban kar uth sakein. Don't be so hard on yourself. Result chahe jo bhi ho, meri nazron mein tum winner ho kyunki tumne koshish ki. I am so proud of you for trying, and I’ll be proud of you no matter what.",
+                a: "94:5 - 'So truly where there is hardship, there is also ease.'", 
+                c: "Har mushkil ke saath asaani judi hui hai. Trust the process and keep moving." 
+            },
+            4: { 
+                t: "You Miss Me", 
+                m: "Aww, main bhi tumhein bohat miss kar rahi hoon! Distance humare beech physical ho sakta hai, but dil se hum hamesha connect hain. Jab bhi dil udaas ho, humari purani baatein ya wo vlogs yaad kar liya karo. I'm right here in your heart, and I’m counting days until we meet again. Bohot jald milenge InshaAllah, tab tak apna bohat sara khayal rakhna mere liye.",
+                a: "30:21 - 'He has placed between you affection and mercy.'", 
+                c: "Missing someone is just proof of how much they truly matter to your soul." 
+            },
+            5: { 
+                t: "You Doubt Yourself", 
+                m: "Apne aap par shak karna band karo! You have no idea ke tum kitne amazing aur capable insaan ho. I see so much potential, kindness, and light in you jo shayad tum khud nahi dekh paate. Kabhi kabhi hum khud ko underestimate karte hain, but trust me, you can achieve anything you set your mind to. Bas ek baar khud par waisa hi yakeen karke dekho jaisa mujhe tum par hai.",
+                a: "33:3 - 'And put your trust in Allah; and sufficient is Allah as a Disposer of affairs.'", 
+                c: "Trust the strength Allah gave you. You are more than enough." 
+            },
+            6: { 
+                t: "Need a Reason to Smile", 
+                m: "Cheer up! Tumhari smile sach mein bohot pyaari hai aur wo poori dunya ko bright kar deti hai. I know aaj ka din shayad thoda off raha ho, but choti choti cheezon mein khushi dhoondo. Maybe a favorite song, a good meal, or just knowing that you are loved unconditionally by me. Tum khush hote ho toh mere aas paas sab acha lagta hai. Always stay happy, just for me!",
+                a: "53:43 - 'And that it is He who makes [one] laugh and weep.'", 
+                c: "Happiness is a gift from above. May Allah keep your heart joyful always." 
+            },
+            7: { 
+                t: "You Can’t Sleep", 
+                m: "Raat kafi ho gayi hai aur tumhara dimaag abhi bhi chal raha hai? Sone ki koshish karo, overthinking se kal ki mushkil hal nahi hogi. Jo kal hone wala hai uski fikar aaj kyun karna jab Allah sambhalne wala hai? Just close your eyes, take deep breaths, and listen to some calming sound or just pray. Main dua kar rahi hoon ke tumhein sukoon ki neend aaye aur tum ek fresh mind ke saath utho.",
+                a: "25:47 - 'He it is Who made the night as a clothing for you...'", 
+                c: "Raat ko sukoon ke liye banaya gaya hai. Put your phone away and let your heart rest." 
+            },
+            8: { 
+                t: "You Are Angry", 
+                m: "I know tum kafi frustrated ho aur shayad gussa justified bhi hai, but please thoda thanda dimaag se socho. Gussa dunya ki sabse buri aag hai jo sirf tumhara apna sukoon jalati hai. Paani piyo, thoda walk karo, aur shant hone ki koshish karo. Sab theek ho jayega, gusse mein aakar kuch aisa mat keh dena jiska baad mein afsos ho. I’m here if you want to vent it all out.",
+                a: "3:134 - 'Those who restrain anger and pardon the people...'", 
+                c: "Gusse ko pee jana aur maaf kar dena sabse badi bahaduri hai." 
+            },
+            9: { 
+                t: "A Long Day", 
+                m: "Kafi thak gaye ho na aaj? Din bhar ki bhag-daur aur itne saare logon se deal karne ke baad ab waqt hai ke tum rest karo. I am so proud of how you handled everything today, tumne apna best diya. Ab thoda self-care zaroori hai. Garam chai piyo ya bas let jao, phone ko side par rakho aur relax karo. You have earned this rest, my hardworking warrior.",
+                a: "Reminder", 
+                c: "Allah sees every bit of your effort. Your hard work is never unnoticed." 
+            },
+            10: { 
+                t: "Worried for Future", 
+                m: "Future ki tension le kar aaj ka sukoon kyun khona? Jo tumhare liye likha hai wo tumhein mil kar rahega, koi chheen nahi sakta. Hum toh bas koshish kar sakte hain, baaki sab us Behtareen Planner par chhod do. Trust the process, tumhari mehnat aur tumhari achi neeyat kabhi zaya nahi jayegi. Bas thoda sa tawakkul rakho aur aaj mein jeena seekho.",
+                a: "3:173 - 'Allah is sufficient for us, and He is the best Disposer of affairs.'", 
+                c: "He is the best of planners. Future ki fikar Us par chhod kar sukoon pao." 
+            },
+            11: { 
+                t: "You Succeed", 
+                m: "Yaaaay! I knew you could do it! Seeing you succeed makes me so happy, meri toh eid ho gayi! Tumhari mehnat rang layi hai aur tum is kamyabi ke poore haqdaar ho. Take a moment to say Alhamdulillah and celebrate this win, chahe choti ho ya badi. I am so, so proud of the man you are becoming. Isi tarah aage badhte raho, my superstar!",
+                a: "14:7 - 'If you are grateful, I will surely increase you.'", 
+                c: "Shukur ada karo, Allah barkat dega aur raaste kholega. Alhamdulillah!" 
+            },
+            12: { 
+                t: "Need a Virtual Hug", 
+                m: "Agar main wahan hoti toh tumhein itni zor se hug karti ke tumhara saara darr aur thakan nikal jati. Since I can't be there right now, imagine this message as a warm, tight hug from me. Main hamesha tumhare saath hoon, har haal mein. Aankhein band karo aur feel karo ke tum akele nahi ho. You are safe, you are valued, and you are deeply loved by me.",
+                a: "Reminder", 
+                c: "Sincere bonds are a mercy. Feel the warmth of someone always praying for you." 
+            },
+            13: { 
+                t: "Feel Unheard", 
+                m: "Aisa lagta hai na ke dunya ki shor mein koi tumhein samajh nahi raha? It's okay. Log nahi toh kya hua, the One who made you understands every silent tear and every unspoken word. Mujhse baat karo, main sab sunne ke liye hamesha taiyar hoon. Kabhi ye mat sochna ke tumhari baatein fizool hain ya tum boring ho. Your voice and your feelings matter the most to me.",
+                a: "67:13 - 'Indeed, He knows that which is within the breasts.'", 
+                c: "He knows your heart even when words fail you. You are heard." 
+            },
+            14: { 
+                t: "Feel Overwhelmed", 
+                m: "Stop. Pause. Sab kuch ek saath karne ki koshish mat karo, tum insaan ho machine nahi. Life koi race nahi hai jahan hamesha bhagna zaroori ho. Chote chote tasks pe focus karo aur ek gehri saans lo. Socho ke tumne pehle bhi kitna kuch handle kiya hai, ye bhi nikal jayega. You are a warrior, but even warriors need a break. Thoda rest lo, dunya kahin nahi bhaag rahi.",
+                a: "2:286 - 'Allah does not burden a soul beyond that it can bear.'", 
+                c: "You are stronger than you feel. Allah knows your capacity." 
+            },
+            15: { 
+                t: "Making a Decision", 
+                m: "Confused ho? It's completely normal. Jab raasta saaf nazar na aaye toh Istikhara karo aur apne dil ki awaaz suno. Decision lene ke baad 'what ifs' mein mat fasna, kyunki jo hona tha wo Allah ki marzi se hua. Just move forward with confidence and a clean heart. I trust your judgement fully aur main har faisle mein tumhara saath doongi.",
+                a: "Clarity", 
+                c: "Pray for guidance, listen to your soul, and then take the leap of faith." 
+            },
+            16: { 
+                t: "Faith Feels Low", 
+                m: "Iman ka graph upar neeche hona insani fitrat hai, iske liye khud ko bura mat samjho. Don't feel guilty. Bas ek chota sa 'SubhanAllah' ya ek sajda bhi kafi hai aaj ke liye. Allah ko tumhari koshish pasand hai, perfect hona zaroori nahi hai. He loves you even in your low phases, bas rasta mat chhorna. Woh tumhein phir se qareeb kar lega.",
+                a: "2:222 - 'Indeed, Allah loves those who are constantly repentant.'", 
+                c: "Wapas palatne ki koshish hi sabse badi kamyabi hai. He is waiting." 
+            },
+            17: { 
+                t: "Start Your Day", 
+                m: "Good morning, sunshine! Aaj ka din ek tohfa hai aur ek nayi umeed hai. Kal jo hua usey kal par hi chhod do, aaj ek naye jazbe ke saath shuru karo. Aaj apne liye jeeyo, khush raho aur logon mein asaniyan baanto. May your day be full of barakah, easy tasks, and beautiful surprises. Keep that gorgeous smile on your face all day long, it suits you!",
+                a: "93:1 - 'By the morning brightness...'", 
+                c: "Every morning is a fresh sign of His Mercy. Make the most of it." 
+            },
+            18: { 
+                t: "Memory",
+                m: "Yaad hai wo saare din jab hum kafi pagalpan karte the? Sath ghumna, wo vlogs banana... har moment joyful ban jata tha jab tum saath hote ho. Wo humhara vlog banane wali memory soch kar hi aaj bhi hansi aa jati hai ke hum kitne crazy the. I hope ye soch kar tumhare chehre pe ek pyari si smile aayi ho. Humne kafi ache moments share kiye hain aur InshaAllah aage aur bhi zyada karenge!",
+                a: "Joy", 
+                c: "Good memories are treasures of the heart. Laughter is medicine." 
+            },
+            19: { 
+                t: "Just Need Love", 
+                m: "In case you forgot today: You are precious. You are a huge blessing in my life aur main har roz Allah ka shukr ada karti hoon tumhare liye. Main tumhari kafi respect aur parwah karti hoon. Tum jaisa koi aur ho hi nahi sakta, tum unique ho. Always remember that you have a very special and permanent place in my heart, forever and always.",
+                a: "Sincerity", 
+                c: "Pure love is a light that never fades. You are truly cherished." 
+            },
+            20: { 
+                t: "Open Any Time", 
+                m: "Ye message tab ke liye hai jab tum bas bore ho rahe ho ya waise hi check kar rahe ho. I just want to say JazakAllah Khair for being such an amazing person. Meri life mein tumhari presence kafi matter karti hai aur tumhare bagair sab pheeka hai. Stay amazing, stay blessed, and remember... you are mine to keep forever! ❤️",
+                a: "Gratitude", 
+                c: "Thanking Allah for the souls that make our journey beautiful." 
+            },
             21: { 
-                t: "Heartbroken", 
-                m: "I hate seeing you hurt. Mujhe pata hai tumhara dil halka nahi hai aaj, par please is ek setback ki wajah se khud ko mat todna. Main hamesha tumhare saath hoon.", 
+                t: "You feel Heartbroken", 
+                m: "I know right now it feels like your world is falling apart aur seene mein ek bojh hai jo kam nahi ho raha. Mujhe pata hai tumhara dil bohat bhari hai, but please, is ek takleef ki wajah se khud ko mat todna. You are so precious to me, and seeing you hurt breaks me too. Give yourself time to heal, rona hai toh jee bhar ke ro lo, par ye yaad rakhna ke main tumhare saath khadi hoon. We will heal this together, I promise.", 
                 a: "3:139 - 'Do not lose heart nor fall into despair.'", 
-                c: "Allah tumhein bata raha hai ke ye dukh temporary hai. Himmat mat haaro." 
+                c: "Allah tumhare dil ke har tukde ko janta hai. Woh sukoon dene wala hai." 
             },
             22: { 
                 t: "You are Grateful", 
-                m: "MashAllah, aaj tumhein khush dekh kar mera dil khush ho gaya! Is pal ko dil se enjoy karo aur Allah ka shukr ada karo.", 
+                m: "MashAllah, aaj tumhein itna khush dekh kar mera dil sach mein khushi se bhar gaya hai! Seeing you win and smile like this is the best feeling ever. Yeh khushi tum deserve karte ho kyunki tumhara dil saaf hai. Take a moment, close your eyes, and just say 'Alhamdulillah' from the bottom of your heart. I hope Allah tumhari zindagi mein aisi hazaaron aur khushiyan laye. Keep shining, hamesha!", 
                 a: "14:7 - 'If you are grateful, I will surely increase you.'", 
-                c: "Jab tum shukr karte ho, toh Allah tumhein aur bhi zyada khushiyan deta hai." 
+                c: "Shukr karne se barkat badhti hai. Stay humble and happy." 
             },
             23: { 
-                t: "People Judge You", 
-                m: "Logon ki baaton ko dil pe mat lo. Tum mere liye aur Allah ke liye kya ho, bas wahi kaafi hai. Don't doubt yourself.", 
-                a: "73:10 - 'And be patient over what they say.'", 
-                c: "Sabse behtareen jawab khamoshi hai. Allah tumhari neeyat jaanta hai." 
+                t: "People are Judging You", 
+                m: "Suno, logon ka kaam hi baatein banana hota hai, unhe nahi pata tumne kya kuch saha hai. Unhe tumhari story ka sirf ek page pata hai, poori kitab nahi. *Logon ki baaton ko apne dimaag par sawar mat karo.* You don't need their approval to be happy. Mere liye tum kya ho, bas wahi kaafi hai. Just keep your head high and stay true to yourself. I believe in you, aur wahi sabse zyada matter karta hai.", 
+                a: "73:10 - 'And be patient over what they say and avoid them gracefully.'", 
+                c: "Behtareen jawab khamoshi hai. Allah tumhari achi neeyat janta hai." 
             },
             24: { 
                 t: "You feel Impatient", 
-                m: "Main jaanti hoon tum thak gaye ho intezar kar ke, par thoda sa aur sabr rakho. Allah ka har faisla sahi waqt par hota hai.", 
-                a: "3:146 - 'And Allah loves the patient.'", 
-                c: "Sabr ka phal hamesha meetha hota hai. Allah tumhara sabr dekh raha hai." 
+                m: "Main samajhti hoon ke intezar karna thaka dene wala hota hai, khas kar jab tum result chahte ho. Par yaad rakho, behtareen cheezein waqt leti hain. *Sabr karna mushkil hai, par uska phal hamesha meetha hota hai.* Trust that Allah has a plan for you jo tumhare apne plan se hazar guna behtar hai. Jab sahi waqt aayega, sab mil jayega. Tab tak ke liye, bas thoda sa aur bharosa rakho.", 
+                a: "3:146 - 'And Allah loves the steadfast (patient).'", 
+                c: "Sabr ka matlab hai Allah ke faisle ka muskurate hue intezar karna." 
             },
             25: { 
-                t: "Feeling Distant", 
-                m: "Kabhi kabhi dunya mein kho jana normal hai. Par wapas lautne ke liye bas ek sajda kaafi hai. Wo tumhare dil ke sabse kareeb hai.", 
-                a: "51:50 - 'So flee to Allah.'", 
-                c: "Allah hamesha tumhara intezar karta hai. Ek baar usse dil ki baat keh kar dekho." 
+                t: "You feel Distant from Allah", 
+                m: "Hum sab kabhi na kabhi dunya ki chaka-chond mein bhatak jate hain, it's okay to feel lost. Agar tumhein lag raha hai ke tum door ho gaye ho, toh pareshaan mat ho. Wapas lautne ke liye sirf ek sachi taba aur ek sajda kaafi hota hai. He is closer to you than your own heartbeat, bas ek baar dil se 'Ya Allah' keh kar toh dekho. His mercy is bigger than your mistakes. Just come back, He's waiting.", 
+                a: "51:50 - 'So flee to Allah (Return to Him).'", 
+                c: "Allah kabhi apne bande ko tanha nahi chorta. Just turn back to Him." 
             },
             26: { 
-                t: "Had a Bad Dream", 
-                m: "Khwab tha, guzar gaya. Pareshan mat ho, main hoon na. Gehri saans lo aur yaad rakho ke bura khwab sirf ek waham hota hai. Ab sukoon se so jao.", 
+                t: "You had a Bad Dream", 
+                m: "Hey, it’s okay! Gehri saans lo, main yahin hoon tumhare saath. Mujhe pata hai bura khwab dekh kar dil ghabra jata hai aur bechaini hoti hai, par yaad rakho wo sirf ek khayal tha jo ab guzar chuka hai. *Pareshan mat ho, wo sirf ek dhoka hai.* Thoda sa paani piyo aur 'A'udhu billahi' parh lo. Main tumhare liye dua kar rahi hoon ke ab tum sukoon se so jao. You are safe and protected, just close your eyes again.", 
                 a: "2:137 - 'And He is the All-Hearing, the All-Knowing.'", 
-                c: "Bura khwab dekh kar 'A'udhu billahi' parh liya karo. Allah tumhare saath hai." 
+                c: "Allah tumhare darr se waqif hai aur Wohi hifazat karne wala hai. Sleep well." 
             }
         };
+
 
         const grid = document.getElementById('mainGrid');
         for (let i in data) {
