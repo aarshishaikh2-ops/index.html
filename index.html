@@ -14,7 +14,6 @@
 
         body {
             background-color: var(--bg);
-            /* Aesthetic background pattern */
             background-image: radial-gradient(#d1bfa7 0.5px, transparent 0.5px);
             background-size: 20px 20px;
             font-family: 'Georgia', serif;
@@ -26,17 +25,18 @@
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--accent);
-            margin-top: 30px;
+            margin-top: 20px;
             font-style: italic;
+            text-align: center;
             text-shadow: 1px 1px white;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
             width: 100%;
             max-width: 450px;
             margin-top: 20px;
@@ -44,23 +44,21 @@
 
         .env {
             background: white;
-            padding: 25px 10px;
-            border-radius: 15px;
+            padding: 20px 10px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             cursor: pointer;
             border: 1px solid var(--soft-pink);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--accent);
-            transition: 0.3s;
+            font-weight: bold;
         }
-
-        .env:active { transform: scale(0.95); }
 
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(4px);
             display: none;
             justify-content: center;
@@ -71,44 +69,34 @@
         .popup {
             background: white;
             width: 85%;
-            max-height: 85vh;
+            max-height: 80vh;
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             overflow-y: auto;
             position: relative;
-            border-top: 8px solid var(--accent);
+            border-top: 6px solid var(--accent);
         }
 
-        .close { float: right; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+        .close { float: right; font-size: 1.5rem; cursor: pointer; color: var(--accent); }
 
         .long-message {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
             color: var(--text);
             white-space: pre-wrap;
         }
 
         .ayah-section {
-            background: var(--bg);
+            background: #fcfaf8;
             padding: 15px;
             border-radius: 10px;
             text-align: center;
             border: 1px dashed var(--accent);
         }
 
-        .ayah-text {
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .comfort-text {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #666;
-        }
+        .ayah-text { font-weight: bold; color: var(--accent); margin-bottom: 5px; display: block; font-size: 0.9rem; }
+        .comfort-text { font-size: 0.8rem; font-style: italic; color: #777; }
     </style>
 </head>
 <body>
@@ -127,33 +115,123 @@
         const data = {
             1: { 
                 t: "You Feel Lonely", 
-                m: "I know kafi bar aisa lagta hai ke itni bheed mein bhi hum akele hain. You feel like no one truly understands what’s going on in your head. But listen, main hamesha yahan hoon. Kabhi bhi akela mehsoos ho toh bas yaad karna ke humara bond kitna special hai. You are never a burden to me, and you're definitely never alone in this world. Jab bhi dil udaas ho, just remember I'm only one message away.",
+                m: "I know kafi bar aisa lagta hai ke itni bheed mein bhi hum akele hain. You feel like no one truly understands what’s going on in your head. But listen, main hamesha yahan hoon. Kabhi bhi akela mehsoos ho toh bas yaad karna ke humara bond kitna special hai. You are never a burden to me. Jab bhi dil udaas ho, remember I'm only one message away.",
                 a: "57:4 - 'And He is with you wherever you are.'", 
-                c: "Allah is closer to you than anyone else. In the silence of your room, He is listening." 
+                c: "Allah is closer to you than anyone else. He is listening to your heart." 
             },
             2: { 
                 t: "You are Stressed", 
-                m: "Hey, take a deep breath. Itna zyada tension mat lo, sab theek ho jayega InshaAllah. I know things are overwhelming right now aur aisa lag raha hai ke sab bikharta ja raha hai, but you are strong enough to handle this. Zyada mat socho (overthinking kills!), bas ek waqt mein ek kaam karo. Relax your mind, drink some water, and remember that this stress is temporary.",
+                m: "Hey, take a deep breath. Itna zyada tension mat lo, sab theek ho jayega InshaAllah. I know things are overwhelming right now, but you are strong enough to handle this. Zyada mat socho (overthinking kills!), bas ek waqt mein ek kaam karo. Relax your mind, drink some water, and remember that this stress is temporary.",
                 a: "13:28 - 'Verily, in the remembrance of Allah do hearts find rest.'", 
-                c: "Stress dunya ka hissa hai, but sukoon sirf Allah ke zikr mein hai. Give your worries to Him." 
+                c: "Sukoon sirf Allah ke zikr mein hai. Give your worries to Him." 
             },
             3: { 
                 t: "You Feel Like Failing", 
-                m: "Suno, ek failure tumhari puri life define nahi karta. Everyone struggles, and it’s okay to stumble. Zindagi mein kabhi kabhi girna zaroori hota hai taake hum aur mazboot ban kar uth sakein. Don't be so hard on yourself. Tumne pehle bhi bohot kuch handle kiya hai, aur tum yeh bhi kar loge. I am so proud of your efforts, result chahe jo bhi ho.",
+                m: "Suno, ek failure tumhari puri life define nahi karta. Everyone struggles, and it’s okay to stumble. Zindagi mein kabhi kabhi girna zaroori hota hai taake hum aur mazboot ban kar uth sakein. Don't be so hard on yourself. Result chahe jo bhi ho, I am proud of you for trying.",
                 a: "94:5 - 'So truly where there is hardship, there is also ease.'", 
-                c: "Har mushkil ke saath asaani judi hui hai. This 'down' phase is just preparing you for something bigger." 
+                c: "Har mushkil ke saath asaani judi hui hai. Trust the process." 
             },
             4: { 
                 t: "You Miss Me", 
-                m: "Aww, main bhi tumhe miss kar raha/rahi hoon! Distance humare beech physical ho sakta hai, but dil se hum hamesha connect hain. Just close your eyes and think of our best memory, wo pagalpan aur wo hasi. I'm right here in your heart until we meet again. Bohot jald milenge InshaAllah, tab tak ke liye stay strong and keep smiling for me!",
+                m: "Aww, main bhi tumhe miss kar rahi hoon! Distance humare beech physical ho sakta hai, but dil se hum hamesha connect hain. Just close your eyes and think of our best memory. I'm right here in your heart until we meet again. Bohot jald milenge InshaAllah! mujhe pura yakeen hai",
                 a: "30:21 - 'He has placed between you affection and mercy.'", 
-                c: "True bonds are a mercy from Allah. Missing someone is just proof of how much they matter." 
+                c: "Missing someone is just proof of how much they matter." 
             },
             5: { 
-                t: "You are Doubting Yourself", 
-                m: "Apne aap par shak karna band karo! You have no idea ke tum kitne amazing ho. Log kya kehte hain ya circumstances kya hain, usse farq nahi padta. I see so much potential and light in you. Kabhi kabhi hum khud ko underestimate karte hain, but trust me, you are capable of achieving everything you dream of. Bas thoda sa khud par yakeen rakho.",
+                t: "You Doubt Yourself", 
+                m: "Apne aap par shak karna band karo! You have no idea ke tum kitne amazing ho. I see so much potential and light in you. Kabhi kabhi hum khud ko underestimate karte hain, but trust me, you are capable of everything you dream of. Bas khud par yakeen rakho.",
                 a: "33:3 - 'And put your trust in Allah; and sufficient is Allah as a Disposer of affairs.'", 
-                c: "Self-doubt is from the Shaitan. Trust the strength Allah gave you and keep moving." 
+                c: "Trust the strength Allah gave you. You are enough." 
+            },
+            6: { 
+                t: "Need a Reason to Smile", 
+                m: "Cheer up! Tumhari smile sach mein bohot pyaari hai. I know aaj ka din shayad thoda off raha ho, but choti choti cheezon mein khushi dhoondo. Maybe a good song or just knowing that I’m here for you. Tum khush hote ho toh sab acha lagta hai. Always stay happy!",
+                a: "53:43 - 'And that it is He who makes [one] laugh and weep.'", 
+                c: "Happiness is a gift. May Allah keep you smiling always." 
+            },
+            7: { 
+                t: "You Can’t Sleep", 
+                m: "Raat kafi ho gayi hai aur tumhara dimaag abhi bhi chal raha hai? Sone ki koshish karo, overthinking se kuch hal nahi hoga. Jo kal hone wala hai uski fikar aaj kyun karna? Just close your eyes, take deep breaths. Main dua kar raha hoon ke tumhe sukoon ki neend aaye.",
+                a: "25:47 - 'He it is Who made the night as a clothing for you...'", 
+                c: "Raat ko sukoon ke liye banaya gaya hai. Let your heart rest." 
+            },
+            8: { 
+                t: "You Are Angry", 
+                m: "I know tum kafi frustrated ho aur gussa justified bhi hai, but thoda thanda dimaag se socho. Gussa dunya ki sabse buri aag hai. Pani piyo, thoda walk karo, aur chill maarne ki koshish karo. Sab theek ho jayega, gusse mein kuch galat mat keh dena.",
+                a: "3:134 - 'Those who restrain anger and pardon the people...'", 
+                c: "Gusse ko pee jana sabse badi bahaduri hai." 
+            },
+            9: { 
+                t: "A Long Day", 
+                m: "Kafi thak gaye ho na aaj? Din bhar ki bhag-daur ke baad ab waqt hai ke tum rest karo. I am so proud of how you handled everything today. Tumne apna best diya, aur ab thoda self-care zaroori hai. Put your phone away and just sleep. You deserve this rest.",
+                a: "Reminder", 
+                c: "Allah sees every bit of your effort. Rest well." 
+            },
+            10: { 
+                t: "Worried for Future", 
+                m: "Future ki tension le kar aaj ka sukoon kyun khona? Jo tumhare liye likha hai wo mil kar rahega. Hum toh bas koshish kar sakte hain, baaki sab Allah par chhod do. Trust the process, tumhari mehnat kabhi zaya nahi jayegi. Bas thoda sa tawakkul rakho.",
+                a: "3:173 - 'Allah is sufficient for us, and He is the best Disposer of affairs.'", 
+                c: "He is the best planner. Future ki fikar Us par chhod do." 
+            },
+            11: { 
+                t: "You Succeed", 
+                m: "Yaaaay! I knew you could do it! Seeing you succeed makes me so happy. Tumhari mehnat rang layi hai. Take a moment to say Alhamdulillah. You deserve every bit of this success. Party toh banti hai! I'm so, so proud of you.",
+                a: "14:7 - 'If you are grateful, I will surely increase you.'", 
+                c: "Shukur ada karo, Allah aur barkat dega." 
+            },
+            12: { 
+                t: "Need a Virtual Hug", 
+                m: "Agar main wahan hota/hoti toh tumhe ek bohot badi hug deta/deti. Since I can't, imagine this message as a hug. Main hamesha tumhare saath hoon, no matter what. Relax and feel the warmth of our friendship. You are safe and loved.",
+                a: "Reminder", 
+                c: "Sincere bonds are a mercy from the Almighty." 
+            },
+            13: { 
+                t: "Feel Unheard", 
+                m: "Aisa lagta hai na ke koi samajh nahi raha? It's okay. Log nahi toh kya hua, the One who made you understands every silent tear. Mujhse baat karo, main sunne ke liye taiyar hoon. Kabhi ye mat sochna ke tumhari baat fizool hai. Your voice matters.",
+                a: "67:13 - 'Indeed, He knows that which is within the breasts.'", 
+                c: "He knows your heart even when words fail." 
+            },
+            14: { 
+                t: "Feel Overwhelmed", 
+                m: "Stop. Sab kuch ek saath karne ki koshish mat karo. Life koi race nahi hai. Choti choti tasks pe focus karo. Ek gehri saans lo aur socho ke tumne kitna kuch endure kiya hai. You are a warrior. Thoda break lo, dunya kahin nahi ja rahi.",
+                a: "2:286 - 'Allah does not burden a soul beyond that it can bear.'", 
+                c: "You are stronger than you feel right now." 
+            },
+            15: { 
+                t: "Making a Decision", 
+                m: "Confused ho? It's normal. Istikhara karo aur apne dil ki suno. Decision lene ke baad 'what ifs' mein mat fasna. Jo ho gaya wo Allah ki marzi thi. Just move forward with confidence. I trust your judgement fully.",
+                a: "Clarity", 
+                c: "Pray for guidance and then take the step." 
+            },
+            16: { 
+                t: "Faith Feels Low", 
+                m: "Iman ke upar neeche hona insani fitrat hai. Don't feel guilty. Bas ek chota sa 'SubhanAllah' bhi kafi hai aaj ke liye. Allah ko tumhari koshish pasand hai, perfect hona zaroori nahi. He loves you even in your low phases.",
+                a: "2:222 - 'Indeed, Allah loves those who are constantly repentant.'", 
+                c: "Wapas palatna hi sabse badi kamyabi hai." 
+            },
+            17: { 
+                t: "Start Your Day", 
+                m: "Good morning! Aaj ka din ek nayi umeed hai. Purani baaton ko kal par chhod do. Aaj apne liye jeeyo aur choti choti khushiyan baato. May your day be full of barakah and ease. Keep that beautiful smile on your face all day!",
+                a: "93:1 - 'By the morning brightness...'", 
+                c: "Every morning is a sign of His Mercy." 
+            },
+            18: { 
+                t: "Funny Memory", 
+                m: "Yaad hai wo din jab humne kafi pagalpan kiya tha? Wo memory soch kar hi hansi aa jati hai. I hope ye soch kar tumhare chehre pe smile aayi ho. Humne kafi ache moments share kiye hain aur aage bhi karenge InshaAllah!",
+                a: "Joy", 
+                c: "Laughter is a blessing for the soul." 
+            },
+            19: { 
+                t: "Just Need Love", 
+                m: "In case you forgot: You are precious. You are a blessing in my life. Main tumhari kafi respect aur parwah karta/karti hoon. Tum jaisa koi nahi hai. Always remember that you have a special place in my heart, forever.",
+                a: "Sincerity", 
+                c: "Pure love is a light that never fades." 
+            },
+            20: { 
+                t: "Open Any Time", 
+                m: "Ye message tab ke liye hai jab tum bas bore ho rahe ho ya waise hi check kar rahe ho. I just want to say thank you for being you. Meri life mein tumhari presence kafi matter karti hai. Stay amazing, stay blessed, and stay mine (as a friend/forever)! ❤️",
+                a: "Gratitude", 
+                c: "Thanking Allah for the people who make life better." 
             }
         };
 
@@ -166,9 +244,10 @@
                 document.getElementById('content').innerHTML = `
                     <div class="long-message">${data[i].m}</div>
                     <div class="ayah-section">
-                        <span class="ayah-text">${data[i].a}</span>
+                        <span class="ayah-text">📖 ${data[i].a}</span>
                         <p class="comfort-text">${data[i].c}</p>
                     </div>
+                    <div style="text-align:center; margin-top:15px; color:#e74c3c;">❤</div>
                 `;
                 document.getElementById('overlay').style.display = 'flex';
             };
